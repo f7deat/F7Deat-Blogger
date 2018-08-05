@@ -85,6 +85,7 @@ body{padding-top: 50px}
 .entry-title{font-size: 1.25rem}
 .border-top { border-top: 1px solid #e5e5e5; }
 .border-bottom { border-bottom: 1px solid #e5e5e5; } 
+.jump-link {float:right}
 /*
  * layout
  */
@@ -229,7 +230,7 @@ body{padding-top: 50px}
         <b:if cond='data:post.isDateStart'>
           &lt;div class=&quot;date-posts&quot;&gt;
         </b:if>
-        <div class='post-outer'>
+        <div class='post-outer card mt-2'>
           <b:include data='post' name='post'/>
           <b:include cond='data:blog.pageType in {&quot;static_page&quot;,&quot;item&quot;}' data='post' name='comment_picker'/>
         </div>
@@ -292,21 +293,23 @@ body{padding-top: 50px}
   </p>
 </b:includable>
     <b:includable id='comment-form' var='post'>
-  <div class='comment-form'>
+  <div class='comment-form card mx-2'>
     <a name='comment-form'/>
     <b:if cond='data:mobile'>
-      <h4 id='comment-post-message'>
+      <h4 class='card-header' id='comment-post-message'>
         <a expr:id='data:widget.instanceId + &quot;_comment-editor-toggle-link&quot;' href='javascript:void(0)'><data:postCommentMsg/></a></h4>
       <p><data:blogCommentMessage/></p>
       <data:blogTeamBlogMessage/>
       <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
       <iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight' frameborder='0' id='comment-editor' name='comment-editor' src='' style='display: none' width='100%'/>
     <b:else/>
-      <h4 id='comment-post-message'><data:postCommentMsg/></h4>
+      <h5 class='card-header' id='comment-post-message'><i aria-hidden='true' class='fa fa-comment'/> <data:postCommentMsg/></h5>
+<div class='card-body'>
       <p><data:blogCommentMessage/></p>
       <data:blogTeamBlogMessage/>
       <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
       <iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
+      </div>
     </b:if>
     <data:post.cmtfpIframe/>
     <script type='text/javascript'>
@@ -350,7 +353,7 @@ body{padding-top: 50px}
   <div class='comments' id='comments'>
     <a name='comments'/>
     <b:if cond='data:post.allowComments'>
-      <h4><data:post.commentLabelFull/>:</h4>
+      <h6 class="alert alert-secondary mx-2" role="alert"><data:post.commentLabelFull/>:</h6>
 
       <b:if cond='data:post.commentPagingRequired'>
         <span class='paging-control-container'>
@@ -700,7 +703,7 @@ body{padding-top: 50px}
 
     <a expr:name='data:post.id'/>
     <b:if cond='data:post.title'>
-      <h3 class='post-title entry-title' itemprop='name'>
+      <h3 class='post-title entry-title card-header' itemprop='name'>
       <b:if cond='data:post.link or (data:post.url and data:blog.url != data:post.url)'>
         <a expr:href='data:post.link ? data:post.link : data:post.url'><data:post.title/></a>
       <b:else/>
@@ -714,7 +717,7 @@ body{padding-top: 50px}
     </div>
 
     <!-- Then use the post body as the schema.org description, for good G+/FB snippeting. -->
-    <div class='post-body entry-content' expr:id='&quot;post-body-&quot; + data:post.id' expr:itemprop='(data:blog.metaDescription ? &quot;&quot; : &quot;description &quot;) + &quot;articleBody&quot;'>
+    <div class='post-body entry-content card-body' expr:id='&quot;post-body-&quot; + data:post.id' expr:itemprop='(data:blog.metaDescription ? &quot;&quot; : &quot;description &quot;) + &quot;articleBody&quot;'>
       <data:post.body/>
       <div style='clear: both;'/> <!-- clear for photos floats -->
     </div>
@@ -725,7 +728,7 @@ body{padding-top: 50px}
       </div>
     </b:if>
 
-    <div class='post-footer'>
+    <div class='post-footer card-footer text-muted'>
     <div class='post-footer-line post-footer-line-1'>
       <span class='post-author vcard'>
         <b:if cond='data:top.showAuthor'>
@@ -801,7 +804,7 @@ body{padding-top: 50px}
       <div class='post-footer-line post-footer-line-2'>
       <span class='post-labels'>
         <b:if cond='data:top.showPostLabels and data:post.labels'>
-          <data:postLabelsLabel/>
+          <i class='fa fa-tags'></i> <data:postLabelsLabel/>
           <b:loop values='data:post.labels' var='label'>
             <a class='badge badge-pill badge-dark' expr:href='data:label.url' rel='tag'><data:label.name/></a><b:if cond='not data:label.isLast'>,</b:if>
           </b:loop>
