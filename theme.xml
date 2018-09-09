@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html lang='en' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<html lang='vi' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 
 <head>
   <meta charset='UTF-8'/>
@@ -86,6 +86,11 @@ body{padding-top: 50px}
 .border-top { border-top: 1px solid #e5e5e5; }
 .border-bottom { border-bottom: 1px solid #e5e5e5; } 
 .jump-link {float:right}
+.tr_bq {
+    background: #eee;
+    padding: 8px;
+    border: 1px solid #d1d1d1;
+}
 /*
  * layout
  */
@@ -97,33 +102,27 @@ body{padding-top: 50px}
 
 
 <nav class='navbar navbar-dark bg-dark fixed-top'>
-  <a class='navbar-brand' href='/'>F7DEAT</a>
+  <a class='navbar-brand' href='/'><i class='fa fa-code'/> F7DEAT</a>
       <button aria-controls='navbarsExample01' aria-expanded='false' aria-label='Toggle navigation' class='navbar-toggler collapsed' data-target='#navbarsExample01' data-toggle='collapse' type='button'>
         <span class='navbar-toggler-icon'/>
       </button>
 
       <div class='navbar-collapse collapse' id='navbarsExample01' style=''>
         <ul class='navbar-nav mr-auto'>
-          <li class='nav-item active'>
-            <a class='nav-link' href='#'>Home <span class='sr-only'>(current)</span></a>
-          </li>
           <li class='nav-item'>
-            <a class='nav-link' href='#'>Link</a>
-          </li>
-          <li class='nav-item'>
-            <a class='nav-link disabled' href='#'>Disabled</a>
+            <a class='nav-link' href='#'>Thông tin <span class='sr-only'>(current)</span></a>
           </li>
           <li class='nav-item dropdown'>
-            <a aria-expanded='false' aria-haspopup='true' class='nav-link dropdown-toggle' data-toggle='dropdown' href='https://example.com' id='dropdown01'>Dropdown</a>
+            <a aria-expanded='false' aria-haspopup='true' class='nav-link dropdown-toggle' data-toggle='dropdown' href='https://example.com' id='dropdown01'>Danh mục</a>
             <div aria-labelledby='dropdown01' class='dropdown-menu'>
-              <a class='dropdown-item' href='#'>Action</a>
+              <a class='dropdown-item' href='/search/label/CSharp'>CSharp</a>
               <a class='dropdown-item' href='#'>Another action</a>
               <a class='dropdown-item' href='#'>Something else here</a>
             </div>
           </li>
         </ul>
         <form class='form-inline my-2 my-md-0'>
-          <input aria-label='Search' class='form-control' placeholder='Search' type='text'/>
+          <input aria-label='Search' class='form-control' placeholder='Tìm kiếm' type='text'/>
         </form>/
       </div>
     </nav>
@@ -353,7 +352,7 @@ body{padding-top: 50px}
   <div class='comments' id='comments'>
     <a name='comments'/>
     <b:if cond='data:post.allowComments'>
-      <h6 class="alert alert-secondary mx-2" role="alert"><data:post.commentLabelFull/>:</h6>
+      <h6 class='alert alert-secondary mx-2' role='alert'><data:post.commentLabelFull/>:</h6>
 
       <b:if cond='data:post.commentPagingRequired'>
         <span class='paging-control-container'>
@@ -804,7 +803,7 @@ body{padding-top: 50px}
       <div class='post-footer-line post-footer-line-2'>
       <span class='post-labels'>
         <b:if cond='data:top.showPostLabels and data:post.labels'>
-          <i class='fa fa-tags'></i> <data:postLabelsLabel/>
+          <i class='fa fa-tags'/> <data:postLabelsLabel/>
           <b:loop values='data:post.labels' var='label'>
             <a class='badge badge-pill badge-dark' expr:href='data:label.url' rel='tag'><data:label.name/></a><b:if cond='not data:label.isLast'>,</b:if>
           </b:loop>
