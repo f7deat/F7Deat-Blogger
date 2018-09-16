@@ -101,30 +101,11 @@ body{padding-top: 50px}
 
 
 
-<nav class='navbar navbar-dark bg-dark fixed-top'>
+<nav class='navbar navbar-dark bg-dark fixed-top' id='NavSideBar'>
   <a class='navbar-brand' href='/'><i class='fa fa-code'/> F7DEAT</a>
-      <button aria-controls='navbarsExample01' aria-expanded='false' aria-label='Toggle navigation' class='navbar-toggler collapsed' data-target='#navbarsExample01' data-toggle='collapse' type='button'>
+      <button aria-controls='navbars' aria-expanded='false' aria-label='Toggle navigation' class='navbar-toggler collapsed' data-target='#navbarsExample01' data-toggle='collapse' type='button' id="btnShowSidebar">
         <span class='navbar-toggler-icon'/>
       </button>
-
-      <div class='navbar-collapse collapse' id='navbarsExample01' style=''>
-        <ul class='navbar-nav mr-auto'>
-          <li class='nav-item'>
-            <a class='nav-link' href='#'>Thông tin <span class='sr-only'>(current)</span></a>
-          </li>
-          <li class='nav-item dropdown'>
-            <a aria-expanded='false' aria-haspopup='true' class='nav-link dropdown-toggle' data-toggle='dropdown' href='https://example.com' id='dropdown01'>Danh mục</a>
-            <div aria-labelledby='dropdown01' class='dropdown-menu'>
-              <a class='dropdown-item' href='/search/label/CSharp'>CSharp</a>
-              <a class='dropdown-item' href='#'>Another action</a>
-              <a class='dropdown-item' href='#'>Something else here</a>
-            </div>
-          </li>
-        </ul>
-        <form class='form-inline my-2 my-md-0'>
-          <input aria-label='Search' class='form-control' placeholder='Tìm kiếm' type='text'/>
-        </form>/
-      </div>
     </nav>
 
     <div class='container-fluid'>
@@ -352,7 +333,7 @@ body{padding-top: 50px}
   <div class='comments' id='comments'>
     <a name='comments'/>
     <b:if cond='data:post.allowComments'>
-      <h6 class='alert alert-secondary mx-2' role='alert'><data:post.commentLabelFull/>:</h6>
+      <h6 class='alert alert-secondary' role='alert'><data:post.commentLabelFull/>:</h6>
 
       <b:if cond='data:post.commentPagingRequired'>
         <span class='paging-control-container'>
