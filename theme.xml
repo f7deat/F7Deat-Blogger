@@ -147,7 +147,7 @@ body{padding-top: 50px}
     <b:if cond='data:display == &quot;list&quot;'>
       <ul class='nav flex-column'>
         <b:loop values='data:labels' var='label'>
-          <li class='nav-item'>
+          <li class='nav-item border-bottom'>
             <b:if cond='data:blog.url == data:label.url'>
               <span expr:dir='data:blog.languageDirection'><data:label.name/></span>
             <b:else/>
@@ -1111,6 +1111,7 @@ body{padding-top: 50px}
 
 	<script src='https://code.jquery.com/jquery-3.3.1.min.js'/>
 	<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js'/>
+  <script src="https://f7deat.github.io/F7Deat-Blogger/f7deat.js"></script>
 </body>
 
 </html>
