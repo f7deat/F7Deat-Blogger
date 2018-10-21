@@ -7,4 +7,4 @@ $('#comments').addClass('card mx-2');
 $('#comments').children("h4").addClass('card-header');
 //navbar
 $('.nav-item').children("span").addClass('py-2 bg-primary text-light d-flex px-4');
-$('#btnShowSidebar').on('click', function(){ $('#Sidebar').toggleClass('d-none')});
+$('#btnShowSidebar').on('click', function(){ $('#NavSideBar').toggleClass('d-none')});
