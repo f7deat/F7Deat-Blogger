@@ -21,7 +21,7 @@
 .nav-link {
     padding: 1rem 2rem;
 }
-.nav-link:hover, .dropdown-item:hover {
+.navbar .nav-link:hover, .dropdown-item:hover {
     display: block;
     background: #fff
 }
@@ -42,19 +42,6 @@
 /*
  * Sidebar
  */
-.site-header {
-  background-color: rgba(0, 0, 0, .85);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  backdrop-filter: saturate(180%) blur(20px);
-}
-.site-header a {
-  color: #999;
-  transition: ease-in-out color .15s;
-}
-.site-header a:hover {
-  color: #fff;
-  text-decoration: none;
-}
 .sidebar {
   position: fixed;
   top: 0;
@@ -74,6 +61,8 @@
   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
 }
 
+.sidebar .nav-link:hover {color: #fff}
+
 @supports ((position: -webkit-sticky) or (position: sticky)) {
   .sidebar-sticky {
     position: -webkit-sticky;
@@ -82,22 +71,11 @@
 }
 
 .sidebar .nav-link {
-  font-weight: 500;
-  color: #333;
-}
-
-.sidebar .nav-link .feather {
-  margin-right: 4px;
-  color: #999;
+  color: #8b91a0;
 }
 
 .sidebar .nav-link.active {
   color: #007bff;
-}
-
-.sidebar .nav-link:hover .feather,
-.sidebar .nav-link.active .feather {
-  color: inherit;
 }
 
 .sidebar-heading {
@@ -163,15 +141,12 @@ background: #eee
               </div>
             </li>
           </ul>
-          <!-- <form class="form-inline my-2 my-md-0">
-            <input class="form-control" type="text" placeholder="Search">
-          </form> -->
         </div>
       </nav>
 
     <div class='container-fluid'>
       <div class='row'>
-        <nav class='col-md-2 d-none d-md-block bg-light sidebar shadow-sm'>
+        <nav class='col-md-2 d-none d-md-block bg-dark sidebar shadow'>
             <b:section class='sidebar-sticky' id='Sidebar' showaddelement='yes'>
               <b:widget id='Label1' locked='false' title='Nhãn' type='Label' version='1'>
                 <b:widget-settings>
@@ -189,7 +164,7 @@ background: #eee
     <b:if cond='data:display == &quot;list&quot;'>
       <ul class='nav flex-column'>
         <b:loop values='data:labels' var='label'>
-          <li class='nav-item border-bottom'>
+          <li class='nav-item'>
             <b:if cond='data:blog.url == data:label.url'>
               <span expr:dir='data:blog.languageDirection'><data:label.name/></span>
             <b:else/>
@@ -197,7 +172,7 @@ background: #eee
 <i class='fa fa-tag'/> 
 <data:label.name/>
             <b:if cond='data:showFreqNumbers'>
-              <span class='badge badge-pill badge-primary' dir='ltr'><data:label.count/></span>
+              <span class='badge badge-pill badge-info float-right' dir='ltr'><data:label.count/></span>
             </b:if>
 </a>
             </b:if>
@@ -263,7 +238,7 @@ background: #eee
           &lt;/div&gt;&lt;/div&gt;
         </b:if>
         <b:if cond='data:post.isDateStart'>
-          &lt;div class=&quot;date-outer&quot;&gt;
+          &lt;div class=&quot;date-outer shadow&quot;&gt;
         </b:if>
         <b:if cond='data:post.dateHeader'>
           <h2 class='date-header'><span><data:post.dateHeader/></span></h2>
@@ -719,11 +694,11 @@ background: #eee
 
     <b:if cond='data:olderPageUrl'>
       <span id='blog-pager-older-link'>
-      <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'><data:olderPageTitle/></a>
+      <a class='blog-pager-older-link btn btn-light shadow' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'><data:olderPageTitle/></a>
       </span>
     </b:if>
 
-    <a class='home-link btn btn-primary btn-block' expr:href='data:blog.homepageUrl'><data:homeMsg/></a>
+    <a class='home-link btn btn-primary btn-block shadow mt-5' expr:href='data:blog.homepageUrl'><data:homeMsg/></a>
 
     <b:if cond='data:mobileLinkUrl'>
       <div class='blog-mobile-link'>
@@ -764,8 +739,8 @@ background: #eee
     </div>
 
     <b:if cond='data:post.hasJumpLink'>
-      <div class='jump-link'>
-        <a class='btn btn-info btn-sm' expr:href='data:post.url + &quot;#more&quot;' expr:title='data:post.title'><data:post.jumpText/></a>
+      <div class='jump-link shadow-sm'>
+        <a class='btn btn-danger btn-sm' expr:href='data:post.url + &quot;#more&quot;' expr:title='data:post.title'><data:post.jumpText/></a>
       </div>
     </b:if>
 
@@ -847,7 +822,7 @@ background: #eee
         <b:if cond='data:top.showPostLabels and data:post.labels'>
           <i class='fa fa-tags'/> <data:postLabelsLabel/>
           <b:loop values='data:post.labels' var='label'>
-            <a class='badge badge-pill badge-dark' expr:href='data:label.url' rel='tag'><data:label.name/></a><b:if cond='not data:label.isLast'>,</b:if>
+            <a class='badge badge-pill badge-dark shadow-sm' expr:href='data:label.url' rel='tag'><data:label.name/></a><b:if cond='not data:label.isLast'>,</b:if>
           </b:loop>
         </b:if>
       </span>
