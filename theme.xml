@@ -7,15 +7,54 @@
   <meta content='width=device-width, initial-scale=1.0' name='viewport'/>
   <meta content='ie=edge' http-equiv='X-UA-Compatible'/>
   <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css' rel='stylesheet'/>
-  <link href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'/>
+  <link crossorigin='anonymous' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' rel='stylesheet'/>
   <title><data:blog.pageTitle/></title>
     <b:skin><![CDATA[
-body{padding-top: 50px}
          
+/*
+ * Navbar
+*/
+.navbar {
+    padding: 0 1rem;
+	z-index: 100;
+}
+.nav-link {
+    padding: 1rem 2rem;
+}
+.nav-link:hover, .dropdown-item:hover {
+    display: block;
+    background: #fff
+}
+.dropdown:hover .dropdown-menu {
+    display: block
+}
+.dropdown-menu {
+    border-radius: 0;
+    margin: 0;
+    border: none;
+    padding: 0;
+    background: #f8f9fa
+}
+.dropdown-item {
+    border-bottom: 1px solid #eeeeee;
+    padding: 0.8rem 1rem;
+}
 /*
  * Sidebar
  */
-
+.site-header {
+  background-color: rgba(0, 0, 0, .85);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+.site-header a {
+  color: #999;
+  transition: ease-in-out color .15s;
+}
+.site-header a:hover {
+  color: #fff;
+  text-decoration: none;
+}
 .sidebar {
   position: fixed;
   top: 0;
@@ -71,12 +110,9 @@ body{padding-top: 50px}
  */
 
 [role="main"] {
-  padding-top: 48px; /* Space for fixed navbar */
+  padding-top: 60px;
+background: #eee
 }
-
-/*
- * Navbar
- */
 
 
 /*
@@ -101,16 +137,41 @@ body{padding-top: 50px}
 
 
 
-<nav class='navbar navbar-dark bg-dark fixed-top' id='NavSideBar'>
-  <a class='navbar-brand' href='/'><i class='fa fa-code'/> F7DEAT</a>
-      <button aria-controls='navbars' aria-expanded='false' aria-label='Toggle navigation' class='navbar-toggler collapsed' data-target='#navbarsExample01' data-toggle='collapse' type='button' id="btnShowSidebar">
-        <span class='navbar-toggler-icon'/>
-      </button>
-    </nav>
+ <nav class='navbar navbar-expand-md navbar-light bg-light shadow fixed-top'>
+   <a class='navbar-brand' href='/'> <i class='fa fa-crown'/> <b>F7DEAT</b></a>
+        <button aria-controls='navbarsExample04' aria-expanded='false' aria-label='Toggle navigation' class='navbar-toggler' data-target='#navbarsExample04' data-toggle='collapse' type='button'>
+          <span class='navbar-toggler-icon'/>
+        </button>
+  
+        <div class='collapse navbar-collapse' id='navbarsExample04'>
+          <ul class='navbar-nav mr-auto'>
+            <li class='nav-item active'>
+              <a class='nav-link' href='/'> <i class='fas fa-home'/> Home <span class='sr-only'>(current)</span></a>
+            </li>
+            <li class='nav-item'>
+              <a class='nav-link' href='#'> <i class='fab fa-codepen'/> Link</a>
+            </li>
+            <li class='nav-item'>
+              <a class='nav-link disabled' href='#'> <i class='fab fa-codepen'/> Disabled</a>
+            </li>
+            <li class='nav-item dropdown'>
+              <a aria-expanded='false' aria-haspopup='true' class='nav-link dropdown-toggle' data-toggle='dropdown' href='https://fb.me/tan.dct' id='dropdown04'> <i class='fab fa-codepen'/> Dropdown</a>
+              <div aria-labelledby='dropdown04' class='dropdown-menu shadow'>
+                <a class='dropdown-item' href='#'> <i class='fas fa-caret-right'/> Action</a>
+                <a class='dropdown-item' href='#'> <i class='fas fa-caret-right'/> Another action</a>
+                <a class='dropdown-item' href='#'> <i class='fas fa-caret-right'/> Something else here</a>
+              </div>
+            </li>
+          </ul>
+          <!-- <form class="form-inline my-2 my-md-0">
+            <input class="form-control" type="text" placeholder="Search">
+          </form> -->
+        </div>
+      </nav>
 
     <div class='container-fluid'>
       <div class='row'>
-        <nav class='col-md-2 d-none d-md-block bg-light sidebar'>
+        <nav class='col-md-2 d-none d-md-block bg-light sidebar shadow-sm'>
             <b:section class='sidebar-sticky' id='Sidebar' showaddelement='yes'>
               <b:widget id='Label1' locked='false' title='Nhãn' type='Label' version='1'>
                 <b:widget-settings>
@@ -1092,7 +1153,7 @@ body{padding-top: 50px}
 
 	<script src='https://code.jquery.com/jquery-3.3.1.min.js'/>
 	<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js'/>
-  <script src="https://f7deat.github.io/F7Deat-Blogger/f7deat.js"></script>
+  <script src='https://f7deat.github.io/F7Deat-Blogger/f7deat.js'/>
 </body>
 
 </html>
