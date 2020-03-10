@@ -15,10 +15,9 @@
  * Navbar
 */
 .navbar {
-    padding: 0 1rem;
 	z-index: 100;
 }
-.nav-link {
+.sidebar .nav-link {
     padding: 1rem 2rem;
 }
 .navbar .nav-link:hover, .dropdown-item:hover {
@@ -108,6 +107,14 @@ background: #eee
 /*
  * layout
  */
+#layout .sidebar-sticky {
+	flex: 0 0 16.666667%;
+    max-width: 16.666667%;
+}
+#layout .main {
+    flex: 0 0 83.333333%;
+    max-width: 83.333333%;
+}
     ]]></b:skin>
 </head>
 
@@ -115,44 +122,57 @@ background: #eee
 
 
 
- <nav class='navbar navbar-expand-md navbar-light bg-light shadow fixed-top'>
-   <a class='navbar-brand' href='/'> <i class='fa fa-crown'/> <b>F7DEAT</b></a>
-        <button aria-controls='navbarsExample04' aria-expanded='false' aria-label='Toggle navigation' class='navbar-toggler' data-target='#navbarsExample04' data-toggle='collapse' type='button'>
+ <nav class='navbar navbar-expand-md navbar-light bg-light shadow fixed-top row no-gutters'>
+   <div class='col-2'>
+     <a class='navbar-brand' href='/'> <i class='fa fa-crown'/> <b>F7DEAT</b></a>
+   </div>
+   <div class='col-10'>
+     <button aria-controls='navbarsExample04' aria-expanded='false' aria-label='Toggle navigation' class='navbar-toggler float-right' data-target='#navbarsExample04' data-toggle='collapse' type='button'>
           <span class='navbar-toggler-icon'/>
         </button>
   
-        <div class='collapse navbar-collapse' id='navbarsExample04'>
+        <div class='collapse navbar-collapse bg-white' id='navbarsExample04'>
           <ul class='navbar-nav mr-auto'>
-            <li class='nav-item active'>
-              <a class='nav-link' href='/'> <i class='fas fa-home'/> Home <span class='sr-only'>(current)</span></a>
+            <li class='nav-item'>
+              <a class='nav-link' href='/'> <i class='fas fa-home'/> Trang chủ <span class='sr-only'>(current)</span></a>
             </li>
             <li class='nav-item'>
-              <a class='nav-link' href='#'> <i class='fab fa-codepen'/> Link</a>
+              <a class='nav-link' href='https://github.com/f7deat/F7Deat-Blogger'> <i class='fab fa-github'/> Template</a>
             </li>
             <li class='nav-item'>
-              <a class='nav-link disabled' href='#'> <i class='fab fa-codepen'/> Disabled</a>
+              <a class='nav-link' href='http://fb.com/xamcc'> <i class='fab fa-facebook'/> FanPage</a>
             </li>
             <li class='nav-item dropdown'>
-              <a aria-expanded='false' aria-haspopup='true' class='nav-link dropdown-toggle' data-toggle='dropdown' href='https://fb.me/tan.dct' id='dropdown04'> <i class='fab fa-codepen'/> Dropdown</a>
+              <a aria-expanded='false' aria-haspopup='true' class='nav-link dropdown-toggle' data-toggle='dropdown' href='https://fb.me/tan.dct' id='dropdown04'> <i class='fab fa-codepen'/> Liên kết</a>
               <div aria-labelledby='dropdown04' class='dropdown-menu shadow'>
-                <a class='dropdown-item' href='#'> <i class='fas fa-caret-right'/> Action</a>
-                <a class='dropdown-item' href='#'> <i class='fas fa-caret-right'/> Another action</a>
-                <a class='dropdown-item' href='#'> <i class='fas fa-caret-right'/> Something else here</a>
+                <a class='dropdown-item' href='https://codepen.io/f7deat/'> <i class='fas fa-caret-right'/> CodePen</a>
+                <a class='dropdown-item' href='https://f7deat.imgur.com/'> <i class='fas fa-caret-right'/> Imgur</a>
+                <a class='dropdown-item' href='http://hoc5.blogspot.com'> <i class='fas fa-caret-right'/> Hoc5</a>
+                <a class='dropdown-item' href='http://defzone.net'> <i class='fas fa-caret-right'/> DefZon</a>
               </div>
             </li>
           </ul>
         </div>
-      </nav>
+   </div>
+ </nav>
 
     <div class='container-fluid'>
       <div class='row'>
         <nav class='col-md-2 d-none d-md-block bg-dark sidebar shadow'>
             <b:section class='sidebar-sticky' id='Sidebar' showaddelement='yes'>
-              <b:widget id='Label1' locked='false' title='Nhãn' type='Label' version='1'>
+              <b:widget id='AdSense1' locked='false' title='' type='AdSense'>
+                <b:includable id='main'>
+  <div class='widget-content'>
+    <data:adCode/>
+    <b:include name='quickedit'/>
+  </div>
+</b:includable>
+              </b:widget>
+              <b:widget id='Label1' locked='false' title='Labels' type='Label' version='1'>
                 <b:widget-settings>
                   <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
                   <b:widget-setting name='display'>LIST</b:widget-setting>
-                  <b:widget-setting name='selectedLabelsList'/>
+                  <b:widget-setting name='selectedLabelsList'><![CDATA[ASP.NET,Algorithm,Assembly,CSS,CSharp,English,HTML,JavaScript,Machine Learning,Redeem Code,SQL,Tool & Extension,UI & UX]]></b:widget-setting>
                   <b:widget-setting name='showType'>ALL</b:widget-setting>
                   <b:widget-setting name='showFreqNumbers'>true</b:widget-setting>
                 </b:widget-settings>
@@ -202,7 +222,7 @@ background: #eee
 
         <main class='col-md-9 ml-sm-auto col-lg-10 px-4' role='main'>
 <b:section class='main' id='Main Post' showaddelement='yes'>
-  <b:widget id='Blog1' locked='false' title='Bài đăng trên Blog' type='Blog' version='1'>
+  <b:widget id='Blog1' locked='false' title='Blog Posts' type='Blog' version='1'>
     <b:widget-settings>
       <b:widget-setting name='showDateHeader'>false</b:widget-setting>
       <b:widget-setting name='style.textcolor'>#000000</b:widget-setting>
@@ -210,6 +230,7 @@ background: #eee
       <b:widget-setting name='showCommentLink'>true</b:widget-setting>
       <b:widget-setting name='style.urlcolor'>#008000</b:widget-setting>
       <b:widget-setting name='showAuthor'>false</b:widget-setting>
+      <b:widget-setting name='disableGooglePlusShare'>true</b:widget-setting>
       <b:widget-setting name='style.linkcolor'>#0000ff</b:widget-setting>
       <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
       <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
@@ -223,7 +244,7 @@ background: #eee
       <b:widget-setting name='postsPerAd'>1</b:widget-setting>
       <b:widget-setting name='showBacklinks'>false</b:widget-setting>
       <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
-      <b:widget-setting name='showInlineAds'>false</b:widget-setting>
+      <b:widget-setting name='showInlineAds'>true</b:widget-setting>
       <b:widget-setting name='showReactions'>false</b:widget-setting>
     </b:widget-settings>
     <b:includable id='main' var='top'>
@@ -573,13 +594,13 @@ background: #eee
   <div class='blog-pager' id='blog-pager'>
     <b:if cond='data:newerPageUrl'>
       <div class='mobile-link-button' id='blog-pager-newer-link'>
-      <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'>&amp;lsaquo;</a>
+      <a class='blog-pager-newer-link btn btn-secondary shadow' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'>&amp;lsaquo;</a>
       </div>
     </b:if>
 
     <b:if cond='data:olderPageUrl'>
       <div class='mobile-link-button' id='blog-pager-older-link'>
-      <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'>&amp;rsaquo;</a>
+      <a class='blog-pager-older-link btn btn-secondary shadow' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'>&amp;rsaquo;</a>
       </div>
     </b:if>
 
@@ -688,13 +709,17 @@ background: #eee
   <div class='blog-pager' id='blog-pager'>
     <b:if cond='data:newerPageUrl'>
       <span id='blog-pager-newer-link'>
-      <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'><data:newerPageTitle/></a>
+      <a class='blog-pager-newer-link btn btn-secondary btn-sm shadow' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'>
+        <i class='fa fa-angle-double-left'/> <data:newerPageTitle/>
+        </a>
       </span>
     </b:if>
 
     <b:if cond='data:olderPageUrl'>
       <span id='blog-pager-older-link'>
-      <a class='blog-pager-older-link btn btn-light shadow' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'><data:olderPageTitle/></a>
+      <a class='blog-pager-older-link btn btn-secondary btn-sm shadow' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'>
+        <data:olderPageTitle/> <i class='fa fa-angle-double-right'/>
+      </a>
       </span>
     </b:if>
 
