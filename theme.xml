@@ -123,15 +123,15 @@ background: #eee
 
 
  <nav class='navbar navbar-expand-md navbar-light bg-light shadow fixed-top row no-gutters'>
-   <div class='col-2'>
+   <div class='col-2' id='brand'>
      <a class='navbar-brand' href='/'> <i class='fa fa-crown'/> <b>F7DEAT</b></a>
    </div>
-   <div class='col-10'>
+   <div class='col-10' id='menu'>
      <button aria-controls='navbarsExample04' aria-expanded='false' aria-label='Toggle navigation' class='navbar-toggler float-right' data-target='#navbarsExample04' data-toggle='collapse' type='button'>
           <span class='navbar-toggler-icon'/>
         </button>
   
-        <div class='collapse navbar-collapse bg-white' id='navbarsExample04'>
+        <div class='collapse navbar-collapse' id='navbarsExample04'>
           <ul class='navbar-nav mr-auto'>
             <li class='nav-item'>
               <a class='nav-link' href='/'> <i class='fas fa-home'/> Trang chủ <span class='sr-only'>(current)</span></a>
@@ -368,19 +368,12 @@ background: #eee
   </span>
 </b:includable>
     <b:includable id='comment_count_picker' var='post'>
-  <b:if cond='data:post.commentSource == 1'>
-    <span class='cmt_count_iframe_holder' expr:data-count='data:post.numComments' expr:data-onclick='data:post.addCommentOnclick' expr:data-post-url='data:post.url' expr:data-url='data:post.url.canonical.http'>
-    </span>
-  <b:else/>
-    <a class='comment-link' expr:href='data:post.addCommentUrl' expr:onclick='data:post.addCommentOnclick'>
-      <data:post.commentLabelFull/>:
-    </a>
-  </b:if>
+  <a class='comment-link' expr:href='data:post.addCommentUrl' expr:onclick='data:post.addCommentOnclick'>
+    <data:post.commentLabelFull/>:
+  </a>
 </b:includable>
     <b:includable id='comment_picker' var='post'>
-  <b:if cond='data:post.commentSource == 1'>
-    <b:include data='post' name='iframe_comments'/>
-  <b:elseif cond='data:post.showThreadedComments'/>
+  <b:if cond='data:post.showThreadedComments'>
     <b:include data='post' name='threaded_comments'/>
   <b:else/>
     <b:include data='post' name='comments'/>
@@ -522,15 +515,7 @@ background: #eee
   </div>
 </b:includable>
     <b:includable id='iframe_comments' var='post'>
-
-  <b:if cond='data:post.allowIframeComments'>
-    <script expr:src='data:post.iframeCommentSrc' type='text/javascript'/>
-    <div class='cmt_iframe_holder' expr:data-href='data:post.url.canonical' expr:data-viewtype='data:post.viewType'/>
-
-    <b:if cond='data:post.embedCommentForm == &quot;false&quot;'>
-      <a expr:href='data:post.addCommentUrl' expr:onclick='data:post.addCommentOnclick'><data:postCommentMsg/></a>
-    </b:if>
-  </b:if>
+  <!-- G+ comments, no longer available. The includable is retained for backwards-compatibility. -->
 </b:includable>
     <b:includable id='mobile-index-post' var='post'>
   <div class='mobile-date-outer date-outer'>
