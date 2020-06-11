@@ -10,4 +10,4 @@
 | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | IE11, Edge| last 2 versions| last 2 versions| last 2 versions| last 2 versions| last 2 versions| last 2 versions
 ### Donate
-Give me a coffe: [Paypal](https://www.paypal.me/f7deat)
+Give me a coffee: [Paypal](https://www.paypal.me/f7deat)
