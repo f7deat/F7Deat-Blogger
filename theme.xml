@@ -22,6 +22,7 @@ pre {
     border-radius: 6px;
     color: #fff;
     padding: 10px 20px;
+    margin-top: 1rem;
 }
 .navbar {
 	z-index: 100;
