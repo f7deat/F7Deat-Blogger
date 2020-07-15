@@ -1,4 +1,7 @@
 ### F7Deat-Blogger
+  [![GitHub stars][stars-image]][stars-url]
+  [![GitHub forks][forks-image]][forks-url]
+  [![GitHub issues][issues-image]][issues-url]
 ### Demo Live
 [F7Deat.Blogspot.Com](https://f7deat.blogspot.com/)
 ### Screenshoot
