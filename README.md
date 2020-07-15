@@ -16,10 +16,10 @@
 Give me a coffee: [Paypal](https://www.paypal.me/f7deat)
 
 [stars-url]: https://github.com/f7deat/F7Deat-Blogger/stargazers
-[stars-image]: https://img.shields.io/github/stars/tojohnonly/personal.navigation.website.svg
+[stars-image]: https://img.shields.io/github/stars/f7deat/F7Deat-Blogger.svg
 
 [forks-url]: https://github.com/f7deat/F7Deat-Blogger/network
-[forks-image]: https://img.shields.io/github/forks/tojohnonly/personal.navigation.website.svg
+[forks-image]: https://img.shields.io/github/forks/f7deat/F7Deat-Blogger.svg
 
 [issues-url]: https://github.com/f7deat/F7Deat-Blogger/issues
-[issues-image]: https://img.shields.io/github/issues/tojohnonly/personal.navigation.website.svg
+[issues-image]: https://img.shields.io/github/issues/f7deat/F7Deat-Blogger.svg
