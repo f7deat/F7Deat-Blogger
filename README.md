@@ -14,3 +14,12 @@
 | IE11, Edge| last 2 versions| last 2 versions| last 2 versions| last 2 versions| last 2 versions| last 2 versions
 ### Donate
 Give me a coffee: [Paypal](https://www.paypal.me/f7deat)
+
+[stars-url]: https://github.com/f7deat/F7Deat-Blogger/stargazers
+[stars-image]: https://img.shields.io/github/stars/tojohnonly/personal.navigation.website.svg
+
+[forks-url]: https://github.com/f7deat/F7Deat-Blogger/network
+[forks-image]: https://img.shields.io/github/forks/tojohnonly/personal.navigation.website.svg
+
+[issues-url]: https://github.com/f7deat/F7Deat-Blogger/issues
+[issues-image]: https://img.shields.io/github/issues/tojohnonly/personal.navigation.website.svg
