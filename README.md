@@ -6,6 +6,9 @@
 [F7Deat.Blogspot.Com](https://f7deat.blogspot.com/)
 ### Screenshoot
 ![](https://i.imgur.com/IkawnKo.png)
+### Setting
+Sidebar:
+![](https://1.bp.blogspot.com/-hCHs9FqVi90/Xyo0OsUoGrI/AAAAAAAABbk/JUcbWaAOUuc8H81RfhuBB3OvKukOkvmcACLcBGAsYHQ/s640/Capture.PNG)
 ### Write blog
 ![](https://i.imgur.com/bzduFDF.png)
 ## Browsers support
