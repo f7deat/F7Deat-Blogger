@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html lang='vi' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<html b:css='false' b:layoutsVersion='3' lang='vi' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 
 <head>
   <meta charset='UTF-8'/>
@@ -10,19 +10,19 @@
   <link crossorigin='anonymous' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' rel='stylesheet'/>
   <title><data:blog.pageTitle/></title>
     <b:skin><![CDATA[
-blockquote {
-    margin-top: 1rem;
-    border-left: 8px solid tomato;
-    padding: 10px 15px;
-    box-shadow: 2px 2px 15px #eee;
-    background: #ffffe082;
-}
 pre {
-    background: #282c34;
+	background: #282c34;
     border-radius: 6px;
     color: #fff;
     padding: 10px 20px;
     margin-top: 1rem;
+}
+blockquote {
+	margin-top: 1rem;
+    border-left: 8px solid tomato;
+    padding: 10px 15px;
+    box-shadow: 2px 2px 15px #eee;
+    background: #ffffe082;
 }
 .navbar {
 	z-index: 100;
@@ -98,8 +98,8 @@ pre {
 background: #eee
 }
 .post-body img {
-    max-width: 100%;
-    height: auto;
+	max-width: 100%;
+	height: auto;
 }
 
 /*
@@ -117,15 +117,32 @@ background: #eee
 /*
  * layout
  */
-#layout .sidebar-sticky {
-	flex: 0 0 16.666667%;
-    max-width: 16.666667%;
-}
-#layout .main {
-    flex: 0 0 83.333333%;
-    max-width: 83.333333%;
-}
+
     ]]></b:skin>
+  <b:template-skin>
+<![CDATA[ 
+#layout .row {
+	display: flex;
+	flex-wrap: wrap;
+}
+#layout .col-md-2 {
+	width: 16.666667%;
+}
+#layout .col-md-10 {
+    width: 83.333333%;
+}
+#layout .sidebar {
+	position: unset;
+	padding: 0;
+}
+#layout .navbar {
+	display: none;
+}
+body#layout {
+	padding: 0;
+}
+]]>
+  </b:template-skin>
 </head>
 
 <body>
@@ -158,7 +175,7 @@ background: #eee
                 <a class='dropdown-item' href='https://codepen.io/f7deat/'> <i class='fas fa-caret-right'/> CodePen</a>
                 <a class='dropdown-item' href='https://f7deat.imgur.com/'> <i class='fas fa-caret-right'/> Imgur</a>
                 <a class='dropdown-item' href='http://hoc5.blogspot.com'> <i class='fas fa-caret-right'/> Hoc5</a>
-                <a class='dropdown-item' href='http://defzone.net'> <i class='fas fa-caret-right'/> DefZon</a>
+                <a class='dropdown-item' href='http://defzone.net'> <i class='fas fa-caret-right'/> DefZone</a>
               </div>
             </li>
           </ul>
@@ -169,15 +186,7 @@ background: #eee
     <div class='container-fluid'>
       <div class='row'>
         <nav class='col-md-2 d-none d-md-block bg-dark sidebar shadow'>
-            <b:section class='sidebar-sticky' id='Sidebar' showaddelement='yes'>
-              <b:widget id='AdSense1' locked='false' title='' type='AdSense'>
-                <b:includable id='main'>
-  <div class='widget-content'>
-    <data:adCode/>
-    <b:include name='quickedit'/>
-  </div>
-</b:includable>
-              </b:widget>
+            <b:section class='sidebar-sticky' id='sidebar' maxwidgets='2' showaddelement='yes'>
               <b:widget id='Label1' locked='false' title='Labels' type='Label' version='1'>
                 <b:widget-settings>
                   <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
@@ -230,8 +239,8 @@ background: #eee
             </b:section>
         </nav>
 
-        <main class='col-md-9 ml-sm-auto col-lg-10 px-4' role='main'>
-<b:section class='main' id='Main Post' showaddelement='yes'>
+        <main class='col-md-9 ml-sm-auto col-md-10 px-4' role='main'>
+<b:section class='main main-post' id='main-post' showaddelement='yes'>
   <b:widget id='Blog1' locked='false' title='Blog Posts' type='Blog' version='1'>
     <b:widget-settings>
       <b:widget-setting name='showDateHeader'>false</b:widget-setting>
@@ -306,39 +315,8 @@ background: #eee
 
   <b:include cond='data:top.showPlusOne' name='googlePlusBootstrap'/>
 </b:includable>
-    <b:includable id='backlinkDeleteIcon' var='backlink'>
-  <span expr:class='&quot;item-control &quot; + data:backlink.adminClass'>
-    <a expr:href='data:backlink.deleteUrl' expr:title='data:top.deleteBacklinkMsg'>
-      <img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
-    </a>
-  </span>
-</b:includable>
-    <b:includable id='backlinks' var='post'>
-  <a name='links'/><h4><data:post.backlinksLabel/></h4>
-  <b:if cond='data:post.numBacklinks != 0'>
-    <dl class='comments-block' id='comments-block'>
-      <b:loop values='data:post.backlinks' var='backlink'>
-        <div class='collapsed-backlink backlink-control'>
-          <dt class='comment-title'>
-            <span class='backlink-toggle-zippy'>&#160;</span>
-            <a expr:href='data:backlink.url' rel='nofollow'><data:backlink.title/></a>
-            <b:include data='backlink' name='backlinkDeleteIcon'/>
-          </dt>
-          <dd class='comment-body collapseable'>
-            <data:backlink.snippet/>
-          </dd>
-          <dd class='comment-footer collapseable'>
-            <span class='comment-author'><data:post.authorLabel/> <data:backlink.author/></span>
-            <span class='comment-timestamp'><data:post.timestampLabel/> <data:backlink.timestamp/></span>
-          </dd>
-        </div>
-      </b:loop>
-    </dl>
-  </b:if>
-  <p class='comment-footer'>
-    <a class='comment-link' expr:href='data:post.createLinkUrl' expr:id='data:widget.instanceId + &quot;_backlinks-create-link&quot;' target='_blank'><data:post.createLinkLabel/></a>
-  </p>
-</b:includable>
+    <b:includable id='backlinkDeleteIcon' var='backlink'/>
+    <b:includable id='backlinks' var='post'/>
     <b:includable id='comment-form' var='post'>
   <div class='comment-form card mx-2'>
     <a name='comment-form'/>
