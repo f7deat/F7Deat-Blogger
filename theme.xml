@@ -6,10 +6,14 @@
   <meta charset='UTF-8'/>
   <meta content='width=device-width, initial-scale=1.0' name='viewport'/>
   <meta content='ie=edge' http-equiv='X-UA-Compatible'/>
-  <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css' rel='stylesheet'/>
+  <meta content='252222348234511' property='fb:pages'/>
+  <link crossorigin='anonymous' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC' rel='stylesheet'/>
   <link crossorigin='anonymous' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' rel='stylesheet'/>
   <title><data:blog.pageTitle/></title>
     <b:skin><![CDATA[
+a {
+	text-decoration: none;
+}
 pre {
 	background: #282c34;
     border-radius: 6px;
@@ -23,6 +27,26 @@ blockquote {
     padding: 10px 15px;
     box-shadow: 2px 2px 15px #eee;
     background: #ffffe082;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--bs-dark); 
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }
 .navbar {
 	z-index: 100;
@@ -49,13 +73,8 @@ blockquote {
  * Sidebar
  */
 .sidebar {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
   z-index: 10; /* Behind the navbar */
   padding: 48px 0 0; /* Height of navbar */
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
 }
 
 .sidebar-sticky {
@@ -150,11 +169,11 @@ body#layout {
 
 
  <nav class='navbar navbar-expand-md navbar-light bg-light shadow fixed-top row no-gutters'>
-   <div class='col-2' id='brand'>
+   <div class='col-2 px-4' id='brand'>
      <a class='navbar-brand' href='/'> <i class='fa fa-crown'/> <b>F7DEAT</b></a>
    </div>
-   <div class='col-10' id='menu'>
-     <button aria-controls='navbarsExample04' aria-expanded='false' aria-label='Toggle navigation' class='navbar-toggler float-right' data-target='#navbarsExample04' data-toggle='collapse' type='button'>
+   <div class='col-10 px-4' id='menu'>
+     <button aria-controls='navbarsExample04' aria-expanded='false' aria-label='Toggle navigation' class='navbar-toggler float-end' data-target='#navbarsExample04' data-toggle='collapse' type='button'>
           <span class='navbar-toggler-icon'/>
         </button>
   
@@ -211,7 +230,7 @@ body#layout {
 <i class='fa fa-tag'/> 
 <data:label.name/>
             <b:if cond='data:showFreqNumbers'>
-              <span class='badge badge-pill badge-info float-right' dir='ltr'><data:label.count/></span>
+              <span class='badge rounded-pill bg-info float-end' dir='ltr'><data:label.count/></span>
             </b:if>
 </a>
             </b:if>
@@ -239,7 +258,7 @@ body#layout {
             </b:section>
         </nav>
 
-        <main class='col-md-9 ml-sm-auto col-md-10 px-4' role='main'>
+        <main class='col-md-10 px-4' role='main'>
 <b:section class='main main-post' id='main-post' showaddelement='yes'>
   <b:widget id='Blog1' locked='false' title='Blog Posts' type='Blog' version='1'>
     <b:widget-settings>
@@ -254,6 +273,7 @@ body#layout {
       <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
       <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
       <b:widget-setting name='timestampLabel'>Ngày</b:widget-setting>
+      <b:widget-setting name='reactionsLabel'/>
       <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
       <b:widget-setting name='style.layout'>1x1</b:widget-setting>
       <b:widget-setting name='showLabels'>true</b:widget-setting>
@@ -269,7 +289,7 @@ body#layout {
     <b:includable id='main' var='top'>
   <b:if cond='!data:mobile'>
     <!-- posts -->
-    <div class='blog-posts hfeed'>
+    <div class='blog-posts hfeed mb-4'>
 
       <b:include data='top' name='status-message'/>
 
@@ -495,7 +515,7 @@ body#layout {
   </b:if>
 </b:includable>
     <b:includable id='feedLinksBody' var='links'>
-  <div class='feed-links'>
+  <div class='feed-links d-none'>
   <data:feedLinksMsg/>
   <b:loop values='data:links' var='f'>
      <a class='feed-link' expr:href='data:f.url' expr:type='data:f.mimeType' target='_blank'><data:f.name/> (<data:f.feedType/>)</a>
@@ -546,7 +566,7 @@ body#layout {
 </b:includable>
     <b:includable id='mobile-main' var='top'>
     <!-- posts -->
-    <div class='blog-posts hfeed'>
+    <div class='blog-posts hfeed mb-4'>
 
       <b:include data='top' name='status-message'/>
 
@@ -564,7 +584,7 @@ body#layout {
    <b:include name='mobile-nextprev'/>
 </b:includable>
     <b:includable id='mobile-nextprev'>
-  <div class='blog-pager' id='blog-pager'>
+  <div class='blog-pager mb-4' id='blog-pager'>
     <b:if cond='data:newerPageUrl'>
       <div class='mobile-link-button' id='blog-pager-newer-link'>
       <a class='blog-pager-newer-link btn btn-secondary shadow' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'>&amp;lsaquo;</a>
@@ -679,7 +699,7 @@ body#layout {
   </div>
 </b:includable>
     <b:includable id='nextprev'>
-  <div class='blog-pager' id='blog-pager'>
+  <div class='blog-pager mb-4' id='blog-pager'>
     <b:if cond='data:newerPageUrl'>
       <span id='blog-pager-newer-link'>
       <a class='blog-pager-newer-link btn btn-secondary btn-sm shadow' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'>
@@ -696,7 +716,7 @@ body#layout {
       </span>
     </b:if>
 
-    <a class='home-link btn btn-primary btn-block shadow mt-5' expr:href='data:blog.homepageUrl'><data:homeMsg/></a>
+    <a class='home-link btn btn-primary btn-block d-none shadow mt-5' expr:href='data:blog.homepageUrl'><data:homeMsg/></a>
 
     <b:if cond='data:mobileLinkUrl'>
       <div class='blog-mobile-link'>
@@ -820,7 +840,7 @@ body#layout {
         <b:if cond='data:top.showPostLabels and data:post.labels'>
           <i class='fa fa-tags'/> <data:postLabelsLabel/>
           <b:loop values='data:post.labels' var='label'>
-            <a class='badge badge-pill badge-dark shadow-sm' expr:href='data:label.url' rel='tag'><data:label.name/></a><b:if cond='not data:label.isLast'>,</b:if>
+            <a class='badge badge-pill bg-dark shadow-sm text-white' expr:href='data:label.url' rel='tag'><data:label.name/></a><b:if cond='not data:label.isLast'>,</b:if>
           </b:loop>
         </b:if>
       </span>
@@ -1125,7 +1145,7 @@ body#layout {
     </div>
 
 	<script src='https://code.jquery.com/jquery-3.3.1.min.js'/>
-	<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js'/>
+	<script crossorigin='anonymous' integrity='sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM' src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js'/>
   <script src='https://f7deat.github.io/F7Deat-Blogger/f7deat.js'/>
 </body>
 
