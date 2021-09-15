@@ -1,9 +1,10 @@
 //Comment
 $('.avatar-image-container').addClass('rounded-circle');
-$('.comment-actions').children("span").children("a").addClass('btn btn-danger');
-$('.comment-actions').children("a").addClass('btn btn-info');
+$('.comment-actions').children("span").children("a").addClass('btn btn-sm btn-danger');
+$('.comment-actions').children("a").addClass('btn btn-sm btn-primary text-white me-2');
 $('.comment').addClass('list-group-item m-2');
-$('#comments').children("h4").addClass('card-header');
+// Number of comments title
+document.getElementById('comments').childNodes[3].classList.add('h6', 'text-white', 'bg-dark', 'rounded-top')
 //navbar
 $('.nav-item').children("span").addClass('px-5 text-light p-3 d-block bg-primary');
 $('#btnSidebar').on('click',function(){$('.sidebar').toggleClass('d-none')});
