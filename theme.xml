@@ -7,12 +7,15 @@
   <meta content='width=device-width, initial-scale=1.0' name='viewport'/>
   <meta content='ie=edge' http-equiv='X-UA-Compatible'/>
   <meta content='252222348234511' property='fb:pages'/>
-  <link crossorigin='anonymous' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC' rel='stylesheet'/>
-  <link crossorigin='anonymous' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' rel='stylesheet'/>
+  <link crossorigin='anonymous' href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css' integrity='sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU' rel='stylesheet'/>
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css' rel='stylesheet'/>
   <title><data:blog.pageTitle/></title>
     <b:skin><![CDATA[
 a {
 	text-decoration: none;
+}
+#top-ra {
+	padding: 0;
 }
 pre {
 	background: #282c34;
@@ -28,9 +31,15 @@ blockquote {
     box-shadow: 2px 2px 15px #eee;
     background: #ffffe082;
 }
+li.nav-item span[dir="ltr"] {
+	padding: 1rem 2rem;
+    display: block;
+    color: #fff;
+    background: var(--bs-danger);
+}
 /* width */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
 }
 
 /* Track */
@@ -41,7 +50,7 @@ blockquote {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: var(--bs-dark); 
-  border-radius: 8px;
+  border-radius: 5px;
 }
 
 /* Handle on hover */
@@ -114,7 +123,6 @@ blockquote {
 
 [role="main"] {
   padding-top: 60px;
-background: #eee
 }
 .post-body img {
 	max-width: 100%;
@@ -168,28 +176,26 @@ body#layout {
 
 
 
- <nav class='navbar navbar-expand-md navbar-light bg-light shadow fixed-top row no-gutters'>
-   <div class='col-2 px-4' id='brand'>
-     <a class='navbar-brand' href='/'> <i class='fa fa-crown'/> <b>F7DEAT</b></a>
+ <nav class='navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top row no-gutters p-0'>
+   <div class='col col-md-2 px-4' id='brand'>
+     <a class='navbar-brand py-3 d-block' href='/'> <i class='fa fa-crown'/> <b>F7DEAT</b></a>
    </div>
-   <div class='col-10 px-4' id='menu'>
-     <button aria-controls='navbarsExample04' aria-expanded='false' aria-label='Toggle navigation' class='navbar-toggler float-end' data-target='#navbarsExample04' data-toggle='collapse' type='button'>
+     <button aria-controls='navbarsExample04' aria-expanded='false' aria-label='Toggle navigation' class='navbar-toggler me-4 w-auto' data-bs-target='#navbarsExample04' data-bs-toggle='collapse' type='button'>
           <span class='navbar-toggler-icon'/>
         </button>
-  
-        <div class='collapse navbar-collapse' id='navbarsExample04'>
-          <ul class='navbar-nav mr-auto'>
+        <div class='collapse navbar-collapse px-4' id='navbarsExample04'>
+          <ul class='navbar-nav me-auto'>
             <li class='nav-item'>
-              <a class='nav-link' href='/'> <i class='fas fa-home'/> Trang chủ <span class='sr-only'>(current)</span></a>
+              <a class='nav-link py-3' href='/'><i class='bi bi-house-fill me-2'/>Trang chủ</a>
             </li>
             <li class='nav-item'>
-              <a class='nav-link' href='https://github.com/f7deat/F7Deat-Blogger'> <i class='fab fa-github'/> Template</a>
+              <a class='nav-link py-3' href='https://github.com/f7deat/F7Deat-Blogger'> <i class='fab fa-github'/> Template</a>
             </li>
             <li class='nav-item'>
-              <a class='nav-link' href='http://fb.com/xamcc'> <i class='fab fa-facebook'/> FanPage</a>
+              <a class='nav-link py-3' href='http://fb.com/xamcc'> <i class='fab fa-facebook'/> FanPage</a>
             </li>
             <li class='nav-item dropdown'>
-              <a aria-expanded='false' aria-haspopup='true' class='nav-link dropdown-toggle' data-toggle='dropdown' href='https://fb.me/tan.dct' id='dropdown04'> <i class='fab fa-codepen'/> Liên kết</a>
+              <a aria-expanded='false' aria-haspopup='true' class='nav-link py-3 dropdown-toggle' data-bs-toggle='dropdown' href='https://fb.me/tan.dct' id='dropdown04'> <i class='fab fa-codepen'/> Liên kết</a>
               <div aria-labelledby='dropdown04' class='dropdown-menu shadow'>
                 <a class='dropdown-item' href='https://codepen.io/f7deat/'> <i class='fas fa-caret-right'/> CodePen</a>
                 <a class='dropdown-item' href='https://f7deat.imgur.com/'> <i class='fas fa-caret-right'/> Imgur</a>
@@ -199,7 +205,6 @@ body#layout {
             </li>
           </ul>
         </div>
-   </div>
  </nav>
 
     <div class='container-fluid'>
@@ -216,7 +221,7 @@ body#layout {
                 </b:widget-settings>
                 <b:includable id='main'>
   <b:if cond='data:title != &quot;&quot;'>
-    <h6 class='sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted'> <data:title/><i class='fa fa-tags'/></h6>
+    <h6 class='sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted'> <data:title/><i class='bi bi-tag'/></h6>
   </b:if>
   <div expr:class='&quot;widget-content &quot; + data:display + &quot;-label-widget-content&quot;'>
     <b:if cond='data:display == &quot;list&quot;'>
@@ -227,10 +232,10 @@ body#layout {
               <span expr:dir='data:blog.languageDirection'><data:label.name/></span>
             <b:else/>
               <a class='nav-link' expr:dir='data:blog.languageDirection' expr:href='data:label.url'>
-<i class='fa fa-tag'/> 
+<i class='bi bi-tags'/>
 <data:label.name/>
             <b:if cond='data:showFreqNumbers'>
-              <span class='badge rounded-pill bg-info float-end' dir='ltr'><data:label.count/></span>
+              <span class='badge rounded-pill bg-info float-end'><data:label.count/></span>
             </b:if>
 </a>
             </b:if>
@@ -388,10 +393,10 @@ body#layout {
   </b:if>
 </b:includable>
     <b:includable id='comments' var='post'>
-  <div class='comments' id='comments'>
+  <div class='comments border-0' id='comments'>
     <a name='comments'/>
     <b:if cond='data:post.allowComments'>
-      <h6 class='alert alert-secondary' role='alert'><data:post.commentLabelFull/>:</h6>
+      <h6 class='bg-secondary bg-opacity-25 px-4 py-2' role='alert'><data:post.commentLabelFull/>:</h6>
 
       <b:if cond='data:post.commentPagingRequired'>
         <span class='paging-control-container'>
@@ -784,7 +789,7 @@ body#layout {
 
       <span class='post-timestamp'>
         <b:if cond='data:top.showTimestamp'>
-          <i class='fa fa-calendar'/> <data:top.timestampLabel/>
+          <i class='bi bi-calendar'/> <data:top.timestampLabel/>
           <b:if cond='data:post.url'>
             <meta expr:content='data:post.url.canonical' itemprop='url'/>
             <a class='timestamp-link' expr:href='data:post.url' rel='bookmark' title='permanent link'><abbr class='published' expr:title='data:post.timestampISO8601' itemprop='datePublished'><data:post.timestamp/></abbr></a>
@@ -838,7 +843,7 @@ body#layout {
       <div class='post-footer-line post-footer-line-2'>
       <span class='post-labels'>
         <b:if cond='data:top.showPostLabels and data:post.labels'>
-          <i class='fa fa-tags'/> <data:postLabelsLabel/>
+          <i class='bi bi-tags'/> <data:postLabelsLabel/>
           <b:loop values='data:post.labels' var='label'>
             <a class='badge badge-pill bg-dark shadow-sm text-white' expr:href='data:label.url' rel='tag'><data:label.name/></a><b:if cond='not data:label.isLast'>,</b:if>
           </b:loop>
@@ -1132,7 +1137,6 @@ body#layout {
 
     <div id='backlinks-container'>
     <div expr:id='data:widget.instanceId + &quot;_backlinks-container&quot;'>
-      <b:include cond='data:post.showBacklinks' data='post' name='backlinks'/>
     </div>
     </div>
   </div>
