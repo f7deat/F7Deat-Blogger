@@ -178,7 +178,7 @@ body#layout {
 
  <nav class='navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top row no-gutters p-0'>
    <div class='col col-md-2 px-4' id='brand'>
-     <a class='navbar-brand py-3 d-block' href='/'> <i class='fa fa-crown'/> <b>F7DEAT</b></a>
+     <a class='navbar-brand py-3 d-block' href='/'><i class='bi bi-sunset-fill me-2'/><b>F7DEAT</b></a>
    </div>
      <button aria-controls='navbarsExample04' aria-expanded='false' aria-label='Toggle navigation' class='navbar-toggler me-4 w-auto' data-bs-target='#navbarsExample04' data-bs-toggle='collapse' type='button'>
           <span class='navbar-toggler-icon'/>
@@ -264,17 +264,17 @@ body#layout {
         </nav>
 
         <main class='col-md-10 px-4' role='main'>
-<b:section class='main main-post' id='main-post' showaddelement='yes'>
+<b:section class='main main-post pt-4' id='main-post' showaddelement='yes'>
   <b:widget id='Blog1' locked='false' title='Blog Posts' type='Blog' version='1'>
     <b:widget-settings>
       <b:widget-setting name='showDateHeader'>false</b:widget-setting>
-      <b:widget-setting name='style.textcolor'>#000000</b:widget-setting>
+      <b:widget-setting name='style.textcolor'>#ffffff</b:widget-setting>
       <b:widget-setting name='showShareButtons'>false</b:widget-setting>
       <b:widget-setting name='showCommentLink'>true</b:widget-setting>
-      <b:widget-setting name='style.urlcolor'>#008000</b:widget-setting>
+      <b:widget-setting name='style.urlcolor'>#ffffff</b:widget-setting>
       <b:widget-setting name='showAuthor'>false</b:widget-setting>
       <b:widget-setting name='disableGooglePlusShare'>true</b:widget-setting>
-      <b:widget-setting name='style.linkcolor'>#0000ff</b:widget-setting>
+      <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
       <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
       <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
       <b:widget-setting name='timestampLabel'>Ngày</b:widget-setting>
@@ -303,7 +303,7 @@ body#layout {
           &lt;/div&gt;&lt;/div&gt;
         </b:if>
         <b:if cond='data:post.isDateStart'>
-          &lt;div class=&quot;date-outer shadow&quot;&gt;
+          &lt;div class=&quot;date-outer shadow-sm&quot;&gt;
         </b:if>
         <b:if cond='data:post.dateHeader'>
           <h2 class='date-header'><span><data:post.dateHeader/></span></h2>
@@ -311,7 +311,7 @@ body#layout {
         <b:if cond='data:post.isDateStart'>
           &lt;div class=&quot;date-posts&quot;&gt;
         </b:if>
-        <div class='post-outer card mt-2'>
+        <div class='post-outer card border-none mt-2'>
           <b:include data='post' name='post'/>
           <b:include cond='data:blog.pageType in {&quot;static_page&quot;,&quot;item&quot;}' data='post' name='comment_picker'/>
         </div>
@@ -592,13 +592,13 @@ body#layout {
   <div class='blog-pager mb-4' id='blog-pager'>
     <b:if cond='data:newerPageUrl'>
       <div class='mobile-link-button' id='blog-pager-newer-link'>
-      <a class='blog-pager-newer-link btn btn-secondary shadow' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'>&amp;lsaquo;</a>
+      <a class='blog-pager-newer-link btn btn-secondary shadow-sm' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'>&amp;lsaquo;</a>
       </div>
     </b:if>
 
     <b:if cond='data:olderPageUrl'>
       <div class='mobile-link-button' id='blog-pager-older-link'>
-      <a class='blog-pager-older-link btn btn-secondary shadow' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'>&amp;rsaquo;</a>
+      <a class='blog-pager-older-link btn btn-secondary shadow-sm' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'>&amp;rsaquo;</a>
       </div>
     </b:if>
 
@@ -707,16 +707,16 @@ body#layout {
   <div class='blog-pager mb-4' id='blog-pager'>
     <b:if cond='data:newerPageUrl'>
       <span id='blog-pager-newer-link'>
-      <a class='blog-pager-newer-link btn btn-secondary btn-sm shadow' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'>
-        <i class='fa fa-angle-double-left'/> <data:newerPageTitle/>
+      <a class='blog-pager-newer-link btn btn-secondary btn-sm shadow-sm' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'>
+        <i class='bi bi-arrow-left-short'/> <data:newerPageTitle/>
         </a>
       </span>
     </b:if>
 
     <b:if cond='data:olderPageUrl'>
       <span id='blog-pager-older-link'>
-      <a class='blog-pager-older-link btn btn-secondary btn-sm shadow' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'>
-        <data:olderPageTitle/> <i class='fa fa-angle-double-right'/>
+      <a class='blog-pager-older-link btn btn-secondary btn-sm shadow-sm' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'>
+        <data:olderPageTitle/> <i class='bi bi-arrow-right-short'/>
       </a>
       </span>
     </b:if>
@@ -889,13 +889,13 @@ body#layout {
 </b:includable>
     <b:includable id='status-message'>
   <b:if cond='data:navMessage'>
-  <div class='status-msg-wrap'>
+  <div class='status-msg-wrap alert alert-primary'>
     <div class='status-msg-body'>
       <data:navMessage/>
     </div>
     <div class='status-msg-border'>
       <div class='status-msg-bg'>
-        <div class='status-msg-hidden'><data:navMessage/></div>
+        <div class='status-msg-hidden d-none'><data:navMessage/></div>
       </div>
     </div>
   </div>
