@@ -7,7 +7,7 @@
   <meta content='width=device-width, initial-scale=1.0' name='viewport'/>
   <meta content='ie=edge' http-equiv='X-UA-Compatible'/>
   <meta content='252222348234511' property='fb:pages'/>
-  <link crossorigin='anonymous' href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css' integrity='sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU' rel='stylesheet'/>
+  <link crossorigin='anonymous' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' integrity='sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM' rel='stylesheet'/>
   <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css' rel='stylesheet'/>
   <title><data:blog.pageTitle/></title>
     <b:skin><![CDATA[
@@ -15,6 +15,16 @@ a {
 	text-decoration: none;
 }
 #top-ra {
+	padding: 0;
+}
+.comment {
+	display: flex;
+	gap: 1rem;
+}
+.comment-block {
+	flex-grow: 1;
+}
+.comment-replies ol {
 	padding: 0;
 }
 pre {
@@ -26,10 +36,9 @@ pre {
 }
 blockquote {
 	margin-top: 1rem;
-    border-left: 8px solid tomato;
-    padding: 10px 15px;
-    box-shadow: 2px 2px 15px #eee;
-    background: #ffffe082;
+    border-left: 4px solid var(--bs-dark);
+    padding: .5rem 1rem;
+    background: var(--bs-gray-200);
 }
 li.nav-item span[dir="ltr"] {
 	padding: 1rem 2rem;
@@ -172,9 +181,7 @@ body#layout {
   </b:template-skin>
 </head>
 
-<body>
-
-
+<body class='bg-light'>
 
  <nav class='navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top row no-gutters p-0'>
    <div class='col col-md-2 px-4' id='brand'>
@@ -263,8 +270,8 @@ body#layout {
             </b:section>
         </nav>
 
-        <main class='col-md-10 px-4' role='main'>
-<b:section class='main main-post pt-4' id='main-post' showaddelement='yes'>
+        <main class='col-md-10' role='main'>
+<b:section class='main main-post py-2' id='main-post' showaddelement='yes'>
   <b:widget id='Blog1' locked='false' title='Blog Posts' type='Blog' version='1'>
     <b:widget-settings>
       <b:widget-setting name='showDateHeader'>false</b:widget-setting>
@@ -273,7 +280,6 @@ body#layout {
       <b:widget-setting name='showCommentLink'>true</b:widget-setting>
       <b:widget-setting name='style.urlcolor'>#ffffff</b:widget-setting>
       <b:widget-setting name='showAuthor'>false</b:widget-setting>
-      <b:widget-setting name='disableGooglePlusShare'>true</b:widget-setting>
       <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
       <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
       <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
@@ -303,7 +309,7 @@ body#layout {
           &lt;/div&gt;&lt;/div&gt;
         </b:if>
         <b:if cond='data:post.isDateStart'>
-          &lt;div class=&quot;date-outer shadow-sm&quot;&gt;
+          &lt;div class=&quot;date-outer&quot;&gt;
         </b:if>
         <b:if cond='data:post.dateHeader'>
           <h2 class='date-header'><span><data:post.dateHeader/></span></h2>
@@ -312,7 +318,8 @@ body#layout {
           &lt;div class=&quot;date-posts&quot;&gt;
         </b:if>
         <div class='post-outer card border-none mt-2'>
-          <b:include data='post' name='post'/>
+          <b:include data='post' name='post'>
+          </b:include>
           <b:include cond='data:blog.pageType in {&quot;static_page&quot;,&quot;item&quot;}' data='post' name='comment_picker'/>
         </div>
 
@@ -690,9 +697,6 @@ body#layout {
                   <a href='javascript:void(0);'><data:shareMsg/></a>
                 </div>
               </b:if>
-              <b:if cond='data:top.showDummy'>
-                <div class='goog-inline-block dummy-container'><data:post.dummyTag/></div>
-              </b:if>
             </div>
 
           </div>
@@ -763,7 +767,7 @@ body#layout {
 
     <b:if cond='data:post.hasJumpLink'>
       <div class='jump-link shadow-sm'>
-        <a class='btn btn-danger btn-sm' expr:href='data:post.url + &quot;#more&quot;' expr:title='data:post.title'><data:post.jumpText/></a>
+        <a class='btn btn-dark btn-sm' expr:href='data:post.url + &quot;#more&quot;' expr:title='data:post.title'><data:post.jumpText/></a>
       </div>
     </b:if>
 
@@ -885,7 +889,7 @@ body#layout {
   </b:if>
 </b:includable>
     <b:includable id='shareButtons' var='post'>
-  <b:if cond='data:top.showEmailButton'><a class='goog-inline-block share-button sb-email' expr:href='data:post.sharePostUrl + &quot;&amp;target=email&quot;' expr:title='data:top.emailThisMsg' target='_blank'><span class='share-button-link-text'><data:top.emailThisMsg/></span></a></b:if><b:if cond='data:top.showBlogThisButton'><a class='goog-inline-block share-button sb-blog' expr:href='data:post.sharePostUrl + &quot;&amp;target=blog&quot;' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=270,width=475\&quot;); return false;&quot;' expr:title='data:top.blogThisMsg' target='_blank'><span class='share-button-link-text'><data:top.blogThisMsg/></span></a></b:if><b:if cond='data:top.showTwitterButton'><a class='goog-inline-block share-button sb-twitter' expr:href='data:post.sharePostUrl + &quot;&amp;target=twitter&quot;' expr:title='data:top.shareToTwitterMsg' target='_blank'><span class='share-button-link-text'><data:top.shareToTwitterMsg/></span></a></b:if><b:if cond='data:top.showFacebookButton'><a class='goog-inline-block share-button sb-facebook' expr:href='data:post.sharePostUrl + &quot;&amp;target=facebook&quot;' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' expr:title='data:top.shareToFacebookMsg' target='_blank'><span class='share-button-link-text'><data:top.shareToFacebookMsg/></span></a></b:if><b:if cond='data:top.showPinterestButton'><a class='goog-inline-block share-button sb-pinterest' expr:href='data:post.sharePostUrl + &quot;&amp;target=pinterest&quot;' expr:title='data:top.shareToPinterestMsg' target='_blank'><span class='share-button-link-text'><data:top.shareToPinterestMsg/></span></a></b:if><b:if cond='data:top.showPlusOne'><div class='goog-inline-block google-plus-share-container'><data:post.googlePlusShareTag/></div></b:if>
+  <b:if cond='data:top.showEmailButton'><a class='goog-inline-block share-button sb-email' expr:href='data:post.sharePostUrl + &quot;&amp;target=email&quot;' expr:title='data:top.emailThisMsg' target='_blank'><span class='share-button-link-text'><data:top.emailThisMsg/></span></a></b:if><b:if cond='data:top.showBlogThisButton'><a class='goog-inline-block share-button sb-blog' expr:href='data:post.sharePostUrl + &quot;&amp;target=blog&quot;' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=270,width=475\&quot;); return false;&quot;' expr:title='data:top.blogThisMsg' target='_blank'><span class='share-button-link-text'><data:top.blogThisMsg/></span></a></b:if><b:if cond='data:top.showTwitterButton'><a class='goog-inline-block share-button sb-twitter' expr:href='data:post.sharePostUrl + &quot;&amp;target=twitter&quot;' expr:title='data:top.shareToTwitterMsg' target='_blank'><span class='share-button-link-text'><data:top.shareToTwitterMsg/></span></a></b:if><b:if cond='data:top.showFacebookButton'><a class='goog-inline-block share-button sb-facebook' expr:href='data:post.sharePostUrl + &quot;&amp;target=facebook&quot;' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' expr:title='data:top.shareToFacebookMsg' target='_blank'><span class='share-button-link-text'><data:top.shareToFacebookMsg/></span></a></b:if><b:if cond='data:top.showPinterestButton'><a class='goog-inline-block share-button sb-pinterest' expr:href='data:post.sharePostUrl + &quot;&amp;target=pinterest&quot;' expr:title='data:top.shareToPinterestMsg' target='_blank'><span class='share-button-link-text'><data:top.shareToPinterestMsg/></span></a></b:if>
 </b:includable>
     <b:includable id='status-message'>
   <b:if cond='data:navMessage'>
