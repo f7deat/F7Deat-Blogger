@@ -27,6 +27,19 @@ a {
 .comment-replies ol {
 	padding: 0;
 }
+.btn-delete {
+	color: var(--bs-white);
+	background-color: var(--bs-danger);
+	border-radius: var(--bs-border-radius);
+	padding: 0.25rem 0.5rem;
+}
+.btn-reply {
+	color: var(--bs-white);
+	background-color: var(--bs-primary);
+	border-radius: var(--bs-border-radius);
+	padding: 0.25rem 0.5rem;
+	margin-right: 0.5rem;
+}
 pre {
 	background: #282c34;
     border-radius: 6px;
@@ -1148,13 +1161,27 @@ body#layout {
   </b:widget>
 </b:section>
 
-        </main>
-      </div>
-    </div>
+</main>
+</div>
+</div>
 
-	<script src='https://code.jquery.com/jquery-3.3.1.min.js'/>
-	<script crossorigin='anonymous' integrity='sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM' src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js'/>
-  <script src='https://f7deat.github.io/F7Deat-Blogger/f7deat.js'/>
+<script src='https://code.jquery.com/jquery-3.3.1.min.js'/>
+<script crossorigin='anonymous' integrity='sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM' src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js'/>
+<script type='text/javascript'>
+//<![CDATA[
+
+document.querySelector('.avatar-image-container').firstChild.classList.add('rounded-circle')
+document.querySelector('.comment-actions').children.item(1).children.item(0).classList.add('btn-delete');
+document.querySelector('.comment-actions').children.item(0).classList.add('btn-reply');
+$('.comment').addClass('list-group-item m-2');
+
+document.getElementById('comments').childNodes[3].classList.add('h6', 'text-white', 'bg-dark', 'rounded-top', 'px-4', 'py-2');
+//navbar
+$('.nav-item').children('span').addClass('px-5 text-light p-3 d-block bg-primary');
+$('#btnSidebar').on('click',function(){$('.sidebar').toggleClass('d-none')});
+$('.navbar-toggler').on('click',function(){$('#brand').toggleClass('d-none');$('#menu').toggleClass('col-12')});
+//]]>
+</script>
 </body>
 
 </html>
